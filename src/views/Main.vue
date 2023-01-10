@@ -4,6 +4,7 @@
       <Aside/>
       <el-container class="r-container">
         <Header/>
+        <Tab/>
         <el-main>
           <router-view/>
         </el-main>
@@ -16,11 +17,13 @@
 import {defineComponent} from "vue";
 import Header from '../components/Header.vue'
 import Aside from "../components/Aside.vue";
+import Tab from "../components/Tab.vue";
 
 export default defineComponent({
   components: {
     Header,
-    Aside
+    Aside,
+    Tab
   }
 });
 </script>
@@ -29,6 +32,7 @@ export default defineComponent({
 .el-container {
   flex-wrap: wrap;
   align-items: flex-start;
+  height: 100%;
 }
 .common-layout {
   .lay-container {
@@ -43,8 +47,8 @@ export default defineComponent({
     }
   }
 }
-.r-container {
-  flex-wrap: wrap;
-}
+//.r-container {
+//  flex-wrap: wrap;
+//}
 
 </style>

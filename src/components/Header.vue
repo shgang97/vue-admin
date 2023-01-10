@@ -6,7 +6,10 @@
           <Menu/>
         </el-icon>
       </el-button>
-      <h3>首页</h3>
+      <el-breadcrumb separator="/" class="bread">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="current.path" v-if="current">{{current.label}}</el-breadcrumb-item>
+      </el-breadcrumb>
     </div>
     <div class="r-content">
       <el-dropdown>
@@ -29,23 +32,28 @@
 </template>
 
 <script>
-import {defineComponent} from "vue";
-import {useStore} from 'vuex'
+import {computed, defineComponent} from "vue";
+import {useStore} from "vuex";
 
 export default defineComponent({
   name: "Header",
   setup() {
-    let store = useStore()
+    let store = useStore();
     const getImgSrc = () => {
       return "http://blog-img.shgang.cn/assets/images/avatar.png";
     };
     let shiftCollapse = () => {
-      store.commit("UPDATE_ISCOLLAPSE")
-    }
+      store.commit("UPDATE_ISCOLLAPSE");
+    };
+    // 计算属性
+    const current = computed(() => {
+      return store.state.currentMenu;
+    });
     return {
       getImgSrc,
-      shiftCollapse
-    }
+      shiftCollapse,
+      current,
+    };
   }
 });
 </script>
@@ -75,5 +83,8 @@ header {
     color: #fff;
   }
 }
-
+.bread /deep/ span {
+  color: #ffffff !important;
+  cursor: pointer !important;
+}
 </style>

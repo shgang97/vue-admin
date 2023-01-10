@@ -45,10 +45,12 @@
 
 <script>
 import {useRouter} from 'vue-router'
+import {useStore} from 'vuex'
 export default {
   name: "Aside",
   setup() {
     const router = useRouter();
+    const store = useStore();
     const list = [
       {
         path: "/user",
@@ -90,6 +92,7 @@ export default {
       router.push({
         name: item.name,
       });
+      store.commit("SELECT_MENU", item)
     };
     return {
       noChildren,

@@ -16,5 +16,12 @@ export default {
       method: 'get',
       mock: true
     })
+  },
+  getEchartData() {
+    return request({
+      url: '/api/home/echart',
+      method: 'get',
+      mock: true
+    })
   }
 }
