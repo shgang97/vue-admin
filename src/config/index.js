@@ -15,7 +15,7 @@ const EnvConfig = {
   },
   prod: {
     baseApi: '/api',
-    mockApi: '/api',
+    mockApi: '',
   },
 }
 
