@@ -48,4 +48,12 @@ export default {
       data: params
     })
   },
+  getMenu(params) {
+    return request({
+      url: '/api/permission/menu',
+      method: 'post',
+      mock: false,
+      data: params
+    })
+  }
 }

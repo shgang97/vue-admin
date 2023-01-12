@@ -158,6 +158,7 @@ export default defineComponent({
     const getEchartData = async () => {
       let result = await proxy.$api.getEchartData();
       let res = result.orderData;
+      console.log(res.data)
       let userRes = result.userData;
       let videoRes = result.videoData;
       orderData.xData = res.date;

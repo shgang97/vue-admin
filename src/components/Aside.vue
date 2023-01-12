@@ -19,7 +19,7 @@
         <span>{{ item.label }}</span>
       </el-menu-item>
       <el-sub-menu
-          :index="item.path"
+          :index="item.path + ''"
           v-for="item in hasChildren()"
           :key="item.path"
       >
@@ -81,12 +81,12 @@ export default {
         ]
       },
     ];
-
+    const asyncList = store.state.menu;
     const noChildren = () => {
-      return list.filter(item => !item.children);
+      return asyncList.filter(item => !item.children);
     };
     const hasChildren = () => {
-      return list.filter(item => item.children);
+      return asyncList.filter(item => item.children);
     };
     const clickMenu = (item) => {
       router.push({
