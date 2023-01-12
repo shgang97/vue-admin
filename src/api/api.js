@@ -23,5 +23,29 @@ export default {
       method: 'get',
       mock: true
     })
-  }
+  },
+  getUserData(params) {
+    return request({
+      url: '/api/user',
+      method: 'get',
+      mock: true,
+      data: params
+    })
+  },
+  addUser(params) {
+    return request({
+      url: '/api/user',
+      method: 'post',
+      mock: true,
+      data: params
+    })
+  },
+  editUser(params) {
+    return request({
+      url: '/api/user',
+      method: 'put',
+      mock: true,
+      data: params
+    })
+  },
 }

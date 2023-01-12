@@ -83,7 +83,11 @@ header {
     color: #fff;
   }
 }
-.bread /deep/ span {
+//.bread /deep/ span {
+//  color: #ffffff !important;
+//  cursor: pointer !important;
+//}
+:deep(.bread span) {
   color: #ffffff !important;
   cursor: pointer !important;
 }

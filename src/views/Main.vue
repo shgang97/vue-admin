@@ -5,7 +5,7 @@
       <el-container class="r-container">
         <Header/>
         <Tab/>
-        <el-main>
+        <el-main class="right-main">
           <router-view/>
         </el-main>
       </el-container>
@@ -37,6 +37,9 @@ export default defineComponent({
 .common-layout {
   .lay-container {
     flex-wrap: nowrap;
+    .right-main {
+      height: calc(100% - 124px) !important;
+    }
   }
   height: 100%;
   & > .el-container {
